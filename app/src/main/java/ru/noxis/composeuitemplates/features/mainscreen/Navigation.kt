@@ -8,6 +8,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import ru.noxis.composeuitemplates.features.login_signup_ui.LoginScreen
+import ru.noxis.composeuitemplates.features.login_signup_ui.SignupScreen
 
 @Composable
 fun Navigation(navController: NavHostController, innerPadding: PaddingValues) {
@@ -48,11 +50,11 @@ fun Navigation(navController: NavHostController, innerPadding: PaddingValues) {
         }
 
         composable(route = Screen.SignupScreen.route) {
-//            SignupScreen(navController = navController)
+            SignupScreen(navController = navController, Modifier.padding(innerPadding))
         }
 
         composable(route = Screen.LoginScreen.route) {
-//            LoginScreen(navController = navController)
+            LoginScreen(navController = navController, Modifier.padding(innerPadding))
         }
 
         navigation(
