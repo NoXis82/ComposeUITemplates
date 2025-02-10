@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import ru.noxis.composeuitemplates.features.login_signup_ui.LoginScreen
 import ru.noxis.composeuitemplates.features.login_signup_ui.SignupScreen
+import ru.noxis.composeuitemplates.features.profile_ui.ProfileScreen
 
 @Composable
 fun Navigation(navController: NavHostController, innerPadding: PaddingValues) {
@@ -27,7 +28,7 @@ fun Navigation(navController: NavHostController, innerPadding: PaddingValues) {
          //   ChatScreen(navController = navController)
         }
         composable(route = Screen.ProfileScreen.route){
-           // ProfileScreen(navController = navController)
+            ProfileScreen(navController = navController, Modifier.padding(innerPadding))
         }
 
         composable(route = Screen.ProfileScreen2.route){
