@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
+import ru.noxis.composeuitemplates.features.chat_ui.ChatScreen
 import ru.noxis.composeuitemplates.features.ecommerce_ui.EcommerceHomeScreen
 import ru.noxis.composeuitemplates.features.ecommerce_ui.ProductScreen
 import ru.noxis.composeuitemplates.features.login_signup_ui.LoginScreen
@@ -34,7 +35,7 @@ fun Navigation(navController: NavHostController, innerPadding: PaddingValues) {
          //   BottomNavigationScreen()
         }
         composable(route = Screen.ChatScreen.route){
-         //   ChatScreen(navController = navController)
+            ChatScreen(Modifier.padding(innerPadding),navController = navController)
         }
         composable(route = Screen.ProfileScreen.route){
             ProfileScreen(navController = navController, Modifier.padding(innerPadding))
