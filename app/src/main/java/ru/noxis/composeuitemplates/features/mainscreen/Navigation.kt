@@ -1,13 +1,19 @@
 package ru.noxis.composeuitemplates.features.mainscreen
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import androidx.navigation.navigation
+import ru.noxis.composeuitemplates.features.ecommerce_ui.EcommerceHomeScreen
+import ru.noxis.composeuitemplates.features.ecommerce_ui.ProductScreen
 import ru.noxis.composeuitemplates.features.login_signup_ui.LoginScreen
 import ru.noxis.composeuitemplates.features.login_signup_ui.SignupScreen
 import ru.noxis.composeuitemplates.features.payment_ui.PaymentScreen
@@ -39,18 +45,19 @@ fun Navigation(navController: NavHostController, innerPadding: PaddingValues) {
         }
 
         composable(route = Screen.EcommerceScreen.route) {
-           // EcommerceHomeScreen(navController = navController)
+            EcommerceHomeScreen(Modifier.padding(innerPadding),navController = navController)
         }
         composable(
             route = Screen.EcommerceProductScreen.route + "/{productId}",
-//            arguments = listOf(
-//                navArgument("productId") {
-//                    type = NavType.IntType
-//                }
-//            )
+            arguments = listOf(
+                navArgument("productId") {
+                    type = NavType.IntType
+                }
+            )
         ) {
-//            val id = it.arguments?.getInt("productId")
-//            ProductScreen(navController, id!!)
+            val id = it.arguments?.getInt("productId")
+            Toast.makeText(LocalContext.current, "ProductID: $id", Toast.LENGTH_SHORT).show()
+            ProductScreen(Modifier.padding(innerPadding),navController, id!!)
         }
 
         composable(route = Screen.SignupScreen.route) {
