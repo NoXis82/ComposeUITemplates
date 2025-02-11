@@ -10,6 +10,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import ru.noxis.composeuitemplates.features.login_signup_ui.LoginScreen
 import ru.noxis.composeuitemplates.features.login_signup_ui.SignupScreen
+import ru.noxis.composeuitemplates.features.payment_ui.PaymentScreen
+import ru.noxis.composeuitemplates.features.payment_ui.SuccessScreen
 import ru.noxis.composeuitemplates.features.profile_ui.ProfileScreen
 import ru.noxis.composeuitemplates.features.profile_ui_2.ProfileScreen2
 
@@ -64,18 +66,16 @@ fun Navigation(navController: NavHostController, innerPadding: PaddingValues) {
             startDestination = PaymentScreens.AmountScreen.route
         ) {
             composable(PaymentScreens.AmountScreen.route) {
-//                PaymentScreen {
-//                    navController.navigate(PaymentScreens.SuccessScreen.route)
-//                }
+                PaymentScreen(modifier = Modifier.padding(innerPadding)) {
+                    navController.navigate(PaymentScreens.SuccessScreen.route)
+                }
             }
 
             composable(PaymentScreens.SuccessScreen.route) {
-//                SuccessScreen {
-//                    navController.navigate(Screen.MainScreen.route)
-//                }
-
+                SuccessScreen(Modifier.padding(innerPadding)) {
+                    navController.navigate(Screen.MainScreen.route)
+                }
             }
         }
-
     }
 }
